@@ -35,7 +35,7 @@ export const Register = () => {
     <main className='space-y-4'>
         <div className='text-center'>
             <h1>Register</h1>
-            <p>Create an account for digicommerce</p>
+            <p>Create an account for Proactivy</p>
         </div>
         <div className='grid grid-cols-2 gap-4'>
             <input name='firstName' placeholder='First Name' onChange={handleChangeInput}/>

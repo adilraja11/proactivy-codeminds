@@ -31,7 +31,7 @@ export const Login = () => {
     <main className='space-y-4'>
         <div className='text-center'>
             <h1>Login</h1>
-            <p>Welcome back to digicommerce</p>
+            <p>Welcome back to Proactivy</p>
         </div>
         <input name='email' placeholder='email@domain.com' onChange={handleChangeInput}/>
         <input name='password' placeholder='password' onChange={handleChangeInput}/>

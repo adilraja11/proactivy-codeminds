@@ -13,7 +13,7 @@ export async function uploadFile({ Body, Key, ContentType, Dir }) {
   const buffer = Buffer.from(bytes);
 
   const command = new PutObjectCommand({
-    Bucket: "digicommerce-example",
+    Bucket: "proactivity-codeminds",
     Body: buffer,
     Key: `${Dir}/${Key}`,
     ContentType,

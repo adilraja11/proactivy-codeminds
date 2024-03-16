@@ -9,17 +9,52 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum Category {
+  TK
+  SD
+  SMP
+  SMA
+  KULIAH
+  PROFESSIONAL
+}
+
+enum Pricing {
+  FREE
+  PAID
 }
 
 model User {
   id String @id @default(cuid())
   firstName String
   lastName String
-  username String @unique
   email String @unique
   password String
-  createdAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+  role Role
+
+  activity Activity[]
+}
+
+model Activity {
+  id String @id @default(cuid())
+  title String
+  slug String
+  isApproved Boolean
+  category Category
+  description String
+  featuredImage String
+  images String
+  pricing Pricing
+  linkUrl String
+
+  userId String
+  user User @relation(fields: [userId], references: [id])
 }
