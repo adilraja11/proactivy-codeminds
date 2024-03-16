@@ -5,7 +5,7 @@ export const Homepage = () => {
   return (
     <div>
         <Appbar />
-        Homepage untuk Branch Staging
+        [CHECK] Homepage untuk Anak dari Branch Staging
     </div>
   )
 }
