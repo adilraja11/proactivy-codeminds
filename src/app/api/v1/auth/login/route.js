@@ -15,12 +15,12 @@ export async function POST(req) {
     });
 
     // Jika user belum verifikasi, kirim pesan error
-    if (findUser.verified === false) {
-      return NextResponse.json(
-        { errorMessage: "Please verify your account first" },
-        { status: 401 }
-      );
-    }
+    // if (findUser.verified === false) {
+    //   return NextResponse.json(
+    //     { errorMessage: "Please verify your account first" },
+    //     { status: 401 }
+    //   );
+    // }
 
     // Jika user tidak ditemukan, kirim pesan error
     if (!findUser) {
@@ -40,7 +40,6 @@ export async function POST(req) {
       id: findUser.id,
       firstName: findUser.firstName,
       lastName: findUser.lastName,
-      username: findUser.username,
       email: findUser.email,
     };
 
