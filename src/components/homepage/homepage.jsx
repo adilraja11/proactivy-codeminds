@@ -4,7 +4,6 @@ import { Appbar } from '../navigation/appbar'
 export const Homepage = () => {
   return (
     <div>
-        <Appbar />
         [CHECK] Homepage untuk Anak dari Branch Staging
     </div>
   )
