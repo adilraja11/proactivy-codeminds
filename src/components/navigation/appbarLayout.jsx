@@ -1,11 +1,10 @@
 import React from 'react'
 import { Appbar } from './appbar'
 
-export const AppbarLayout = ( {children} ) => {
+export const AppbarLayout = () => {
   return (
-    <main>
+    <div>
         <Appbar/>
-        <div>{children}</div>
-    </main>
+    </div>
   )
 }

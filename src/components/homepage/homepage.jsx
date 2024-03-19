@@ -1,10 +1,12 @@
+"use client"
 import React from 'react'
 import { Appbar } from '../navigation/appbar'
+import { Hero } from './hero'
 
 export const Homepage = () => {
   return (
     <div>
-        [CHECK] Homepage untuk Anak dari Branch Staging
+        <Hero/>
     </div>
   )
 }
