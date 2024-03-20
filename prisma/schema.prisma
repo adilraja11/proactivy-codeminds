@@ -47,7 +47,7 @@ model Activity {
   id String @id @default(cuid())
   title String
   slug String
-  isApproved Boolean
+  isApproved Boolean @default(false)
   category Category
   description String
   featuredImage String
