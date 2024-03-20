@@ -1,43 +1,31 @@
-import React from 'react';
+"use client";
+
+import { useState } from 'react';
+import { useRouter } from 'next/navigation'; // Perhatikan penggunaan next/navigation di sini
+import { Search } from 'lucide-react';
 
 export const SearchBar = () => {
+    const [query, setQuery] = useState("");
+    const router = useRouter();
+
+    function handleSearch(e) {
+        setQuery(e.target.value);
+    }
+
+    async function handlePushSearch(event) {
+        if (event.code === "Enter") {
+            router.push(`/activity?search=${query}`);
+        }
+    }
+
     return (
         <div>
             <div className="flex justify-between items-center">
                 <div className="relative w-full">
-                    <input
-                        type="text"
-                        placeholder="Search..."
-                        className="input input-bordered pl-10 w-full"
-                    />
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 16 16"
-                        fill="currentColor"
-                        className="absolute top-1/2 left-3 transform -translate-y-1/2 w-4 h-4 opacity-70"
-                    >
-                        <path
-                            fillRule="evenodd"
-                            d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                            clipRule="evenodd"
-                        />
-                    </svg>
-                </div>
-                <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn m-1">
-                        Categories
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <Search className="text-gray-500" />
                     </div>
-                    <ul
-                        tabIndex={0}
-                        className="dropdown-content z-10 menu p-2 shadow bg-base-100 rounded-box w-52"
-                    >
-                        <li>
-                            <a>Item 1</a>
-                        </li>
-                        <li>
-                            <a>Item 2</a>
-                        </li>
-                    </ul>
+                    <input type="text" placeholder="Search..." value={query} onChange={handleSearch} onKeyUp={handlePushSearch} className="input-bordered pl-10 w-full md:w-[55rem] lg:w-[72rem] xl:w-120" />
                 </div>
             </div>
         </div>
