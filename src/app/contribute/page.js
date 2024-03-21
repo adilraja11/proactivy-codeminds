@@ -1,9 +1,9 @@
-import { ContributePage } from "@/components/contribute/contributePage";
+import { CreateContribution } from "@/components/contribute/createContribution";
 
 export default function Page() {
   return (
     <div>
-      <ContributePage/>
+      <CreateContribution/>
     </div>
   );
 }

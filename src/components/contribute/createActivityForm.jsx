@@ -3,21 +3,34 @@ import React from 'react'
 export const CreateActivityForm = () => {
   return (
     <div className="space-y-4">
-            <div className="grid grid-cols-6 gap-4">
+            <div>
                 <div className="col-span-4">
                     <p className="font-bold">Activity Name</p>
                     <input type="text" placeholder="Type here" className="input input-bordered" />
                 </div>
             
-                <div className="col-span-2">
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+                <div className="col-span-1">
                     <p className="font-bold">Activity Category</p>
-                    <select className="select select-bordered w-full">
-                        <option disabled selected>Category?</option>
-                        <option>Han Solo</option>
-                        <option>Greedo</option>
+                    <select className="select select-bordered w-full" defaultValue="Category">
+                    <option disabled>Select Category</option>
+                    <option>PAUD</option>
+                    <option>PAUD</option>
+                    </select>
+                </div>
+                <div className="col-span-1">
+                    <p className="font-bold">Pricing</p>
+                    <select className="select select-bordered w-full" defaultValue="Category">
+                    <option disabled>Select Pricing</option>
+                    <option>Paid</option>
+                    <option>Free</option>
                     </select>
                 </div>
             </div>
+
+
             <div>
                 <p className="font-bold">Activity Description</p>
                 <textarea placeholder="Bio" className="textarea textarea-bordered textarea-lg w-full" ></textarea>
@@ -31,7 +44,10 @@ export const CreateActivityForm = () => {
                 <input type="file" className="file-input file-input-bordered w-full" />
             </div>
 
-            <button className="btn btn-neutral w-full">Submit</button>
+            <div>
+                <button className="btn btn-neutral w-full ">Submit</button>
+            </div>
+            
 
     </div>
   )
