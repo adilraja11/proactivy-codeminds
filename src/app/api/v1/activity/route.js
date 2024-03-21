@@ -7,7 +7,7 @@ import { nanoid } from "nanoid";
 export async function GET(request, { params }) {
   const searchParams = request.nextUrl.searchParams;
   const title = searchParams.get("title");
-  const category = searchParams.get("category");
+  const category = searchParams.get("category")?.toUpperCase();
 
   if (category) {
     try {
@@ -22,18 +22,26 @@ export async function GET(request, { params }) {
     }
   }
 
-  if (title) {
+  if (title || category) {
     try {
       const totalAllActivities = await prisma.activity.findMany({
         where: {
-          title: {
-            contains: title,
-            mode: 'insensitive'
-          }
+          OR: [
+            {
+              title: {
+                contains: title,
+                mode: 'insensitive'
+              }
+            },
+            {
+              category
+            }
+          ]
         }
       });
       return NextResponse.json({ data: totalAllActivities, message: "Get data by Title successfully" }, { status: 200 });
     } catch (error) {
+      console.log(error)
       return NextResponse.json({ data: null, message: "Get data by Title failed" }, { status: 500 });
     }
   }
@@ -103,8 +111,6 @@ export async function POST(request) {
   } catch (error) {
     console.log(error);
   }
-
-  // data: createActivity, 
 
   return NextResponse.json({message: "Activity has been created"}, {status: 201});
 }
