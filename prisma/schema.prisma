@@ -18,14 +18,14 @@ enum Role {
   ADMIN
 }
 
-enum Category {
-  TK
-  SD
-  SMP
-  SMA
-  KULIAH
-  PROFESSIONAL
-}
+// enum Category {
+//   TK
+//   SD
+//   SMP
+//   SMA
+//   KULIAH
+//   PROFESSIONAL
+// }
 
 enum Pricing {
   FREE
@@ -40,15 +40,14 @@ model User {
   password String
   role Role
 
-  activity Activity[]
+  resource Resource[]
 }
 
-model Activity {
+model Resource {
   id String @id @default(cuid())
   title String
   slug String
   isApproved Boolean @default(false)
-  category Category
   description String
   featuredImage String
   images String
@@ -58,6 +57,16 @@ model Activity {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  categoryId String
+  category Category @relation(fields: [categoryId], references: [id])
   userId String
   user User @relation(fields: [userId], references: [id])
+}
+
+model Category {
+  id String @id @default(cuid())
+  name String
+  description String
+
+  resource Resource[]
 }
