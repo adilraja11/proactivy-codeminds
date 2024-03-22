@@ -1,5 +1,11 @@
+import { ActivityTable } from "@/components/profile/activitytable";
+
 export default function Page() {
   return (
-    <div>User Profile Page</div>
+    <div>
+      <div>
+        <ActivityTable />
+      </div>
+    </div>
   );
 }
