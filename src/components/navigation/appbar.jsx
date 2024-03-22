@@ -9,8 +9,8 @@ export const Appbar = () => {
     <a className="btn btn-ghost text-xl">ProActivity</a>
   </div>
   <div className="flex-none">
-    <details class="dropdown dropdown-end">
-    <summary class="avatar">
+    <details className="dropdown dropdown-end">
+    <summary className="avatar">
       <div className="avatar">
         <div className="w-14 rounded-full">
           <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />

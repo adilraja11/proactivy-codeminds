@@ -17,7 +17,7 @@ export const ActivityTable = ({userData}) => {
                     <tbody>
                         {userData.resource.map((resource) => {
                             return (
-                                <tr>
+                                <tr key={resource.id}>
                                     <th>{resource.title}</th>
                                     <td>{resource.createdAt.toString()}</td>
                                     <td>{resource.isApproved? "Approved" : "Not Approved"}</td>
