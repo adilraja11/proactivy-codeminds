@@ -2,7 +2,10 @@ import Activity from "@/components/activity/activity";
 import { AppbarLayout } from "@/components/navigation/appbarLayout";
 
 async function getResourcesByCategory(id) {
-  const resources = await fetch(`http://localhost:3000/api/v2/resources?categoryId=${id}`, {
+  // const resources = await fetch(`http://localhost:3000/api/v2/resources?categoryId=${id}`, {
+  //   cache: "no-store"
+  // });
+  const resources = await fetch(`https://proactivy-codeminds.vercel.app/api/v2/resources?categoryId=${id}`, {
     cache: "no-store"
   });
 
