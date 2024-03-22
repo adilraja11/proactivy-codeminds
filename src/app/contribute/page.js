@@ -1,5 +1,9 @@
+import { CreateContribution } from "@/components/contribute/createContribution";
+
 export default function Page() {
   return (
-    <div>Form Contribute Page</div>
+    <div>
+      <CreateContribution/>
+    </div>
   );
 }
