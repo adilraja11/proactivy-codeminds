@@ -1,7 +1,7 @@
 import React from 'react';
 import { SearchBar } from './searchbar';
 import { Dropdown } from './dropdown';
-import { CategoryDropdown } from './CategoryDropdown';
+import { CategoryDropdown } from './categoryDropdown';
 
 export const MainComponent = ({categoryData, onChangeCategoryId, onChangeSearch, categoryId}) => {
     return (
