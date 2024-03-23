@@ -1,24 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
-import { cookies } from "next/headers";
-import * as jose from "jose";
+import { useRouter } from "next/navigation";
 
-export const Appbar = async () => {
-  let isLoggedIn = false;
+export const Appbar = ({ isLoggedIn }) => {
+  const router = useRouter();
 
-  // logic untuk cek token
-  // const jwtSecret = process.env.JWT_SECRET;
-  // const encodedJwtSecret = new TextEncoder().encode(jwtSecret);
-  const token = cookies().get("token")?.value;
-
-  console.log(token);
-
-  // try {
-  //   await jose.jwtVerify(token, encodedJwtSecret);
-  //   isLoggedIn = true;
-  // } catch (_) {
-  //   isLoggedIn = false;
-  // }
+  function handleLogout() {
+    document.cookie = "token=; Path=/; Max-Age=0";
+    router.push("/");
+  }
   return (
     <div className="navbar bg-base-100">
       <div className="flex-1">
@@ -41,20 +33,20 @@ export const Appbar = async () => {
                 <Link href={`/profile`}>My Status</Link>
               </li>
               <li>
-                <Link href={`/`}>Log Out</Link>
+                <div onClick={handleLogout}>Log Out</div>
               </li>
             </ul>
           </details>
-          ) : (
-            <div>
-              <Link href="/login">
-                <button className="btn">Login</button>
-              </Link>
-              <Link href="/register">
-                <button className="btn">Sign Up</button>
-              </Link>
-            </div>
-          )}
+        ) : (
+          <div className="flex gap-2">
+            <Link href="/login">
+              <button className="btn">Login</button>
+            </Link>
+            <Link href="/register">
+              <button className="btn">Sign Up</button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
