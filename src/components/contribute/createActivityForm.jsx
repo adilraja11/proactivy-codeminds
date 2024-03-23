@@ -51,10 +51,12 @@ export const CreateActivityForm = ({data}) => {
         formData.append('images', emptyFile);
         formData.append('featuredImage', emptyFile);
     
-        const response = await fetch(`${API_URL}/api/v2/resources`, {
+        const response = await fetch(`/api/v2/resources`, {
             method: 'POST',
             body: formData,
         });
+        const data = await response.json();
+        console.log(data);
         setActivityName("")
         setCategory("Select Category")
         setDescription("")
