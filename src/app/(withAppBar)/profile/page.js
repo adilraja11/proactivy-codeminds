@@ -16,7 +16,6 @@ export default async function Page({params}) {
 
   return (
     <div>
-      <AppbarLayout />
       <ActivityTable userData={data} />
     </div>
   );

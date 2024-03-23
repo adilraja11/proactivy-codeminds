@@ -16,7 +16,6 @@ export default async function Page({params}){
     console.log(data);
     return (
         <div>
-            <AppbarLayout />
             <div className="max-w-6xl mx-auto mb-12">
                 <DetailActivity detailResource={data}/>
             </div>
