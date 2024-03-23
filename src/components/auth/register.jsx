@@ -1,6 +1,9 @@
 'use client'
 
 import { useState } from 'react'
+import toast from 'react-hot-toast';
+import { API_URL } from "@/config/apiUrl";
+import Image from 'next/image';
 
 export const Register = () => {
     const [registerData, setRegisterData] = useState({
@@ -16,35 +19,41 @@ export const Register = () => {
       }
 
       async function handleRegister() {
-        const {firstName, lastName, username, email, password} = registerData;
+        const {firstName, lastName, email, password} = registerData;
 
-        if (!firstName || !lastName || !username || !email || !password) {
-            console.log("All fields must be filled");
+        if (!firstName || !lastName || !email || !password) {
+            toast.error('All field must be filled');
             return;
         }
 
-        const res = await fetch("/api/v1/auth/register", {
+        const res = await fetch("/api/v2/auth/register", {
             method: "POST",
             body: JSON.stringify(registerData),
         });
 
-        const data = await res.json();
+        const {data, message} = await res.json();
+        toast.success(message);
+        window.location.replace(`${API_URL}/login`);
         console.log(data);
       }
   return (
-    <main className='space-y-4'>
-        <div className='text-center'>
-            <h1>Register</h1>
-            <p>Create an account for Proactivy</p>
-        </div>
-        <div className='grid grid-cols-2 gap-4'>
-            <input name='firstName' placeholder='First Name' onChange={handleChangeInput}/>
-            <input name='lastName' placeholder='Last Name' onChange={handleChangeInput}/>
-        </div>
-        <input name='username' placeholder='Username' onChange={handleChangeInput}/>
-        <input name='email' placeholder='email@domain.com' onChange={handleChangeInput}/>
-        <input name='password' placeholder='password' onChange={handleChangeInput}/>
-        <button onClick={handleRegister}>Register</button>
-    </main>
+    <div className='flex'>
+      <main className='w-1/2 h-screen space-y-6 flex flex-col justify-center items-center'>
+          <div className='text-center'>
+              <h1>Register</h1>
+              <p>Create your Account for Proactivy</p>
+          </div>
+          <div className='grid grid-cols-2 gap-4'>
+              <input type='text' name='firstName' placeholder='First Name' onChange={handleChangeInput}/>
+              <input type='text' name='lastName' placeholder='Last Name' onChange={handleChangeInput}/>
+          </div>
+          <input className='w-full max-w-lg' type='email' name='email' placeholder='email@domain.com' onChange={handleChangeInput}/>
+          <input className='w-full max-w-lg' type='password' name='password' placeholder='password' onChange={handleChangeInput}/>
+          <button className='w-full max-w-lg' onClick={handleRegister}>Register</button>
+      </main>
+      <div className='w-1/2 flex flex-col justify-center items-center'>
+        <Image width={600} height={600} src="/signup-vektor.svg"/>
+      </div>
+    </div>
   )
 }

@@ -7,7 +7,7 @@ export const Provider = ({ children }) => {
     <>
       {children}
       <Toaster
-        position="top-right"
+        position="top-center"
         reverseOrder={false}
         toastOptions={{ style: { boxShadow: "none", border: "solid 1px #E5E7EB" }, error: { style: { backgroundColor: "red", color: "white" } } }}
       />

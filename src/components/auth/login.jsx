@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import toast from 'react-hot-toast';
 import { API_URL } from "@/config/apiUrl";
+import Image from 'next/image';
 
 export const Login = () => {
     const [loginData, setLoginData] = useState({
@@ -18,7 +19,6 @@ export const Login = () => {
         const {email, password} = loginData;
 
         if (!email || !password) {
-            console.log("All field must be filled");
             toast.error('All field must be filled');
             return;
         }
@@ -41,14 +41,19 @@ export const Login = () => {
         // console.log(data);
       }
   return (
-    <main className='space-y-4'>
-        <div className='text-center'>
-            <h1>Login</h1>
-            <p>Welcome back to Proactivy</p>
-        </div>
-        <input name='email' placeholder='email@domain.com' onChange={handleChangeInput}/>
-        <input name='password' placeholder='password' onChange={handleChangeInput}/>
-        <button onClick={handleLogin}>Login</button>
-    </main>
+    <div className='flex'>
+      <main className='w-1/2 h-screen space-y-6 flex flex-col justify-center items-center'>
+          <div className='text-center'>
+              <h1>Welcome Back to Proactivy</h1>
+              <p>Log In to your account.</p>
+          </div>
+          <input className='w-full max-w-lg' type='email' name='email' placeholder='Enter your email' onChange={handleChangeInput}/>
+          <input className='w-full max-w-lg' type='password' name='password' placeholder='Enter your password' onChange={handleChangeInput}/>
+          <button className='w-full max-w-lg' onClick={handleLogin}>Login</button>
+      </main>
+      <div className='w-1/2 flex flex-col justify-center items-center'>
+        <Image width={600} height={600} src="/login-vektor.svg"/>
+      </div>
+    </div>
   )
 }

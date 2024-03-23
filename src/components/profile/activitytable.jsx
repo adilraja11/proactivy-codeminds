@@ -3,7 +3,7 @@ import moment from "moment";
 
 export const ActivityTable = ({ userData }) => {
   return (
-    <div className="max-w-7xl mx-auto mb-12 space-y-3">
+    <div className="max-w-6xl mx-auto mb-12 space-y-3">
       <div className="text-xl font-bold">My Activity</div>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolor excepturi placeat. Eius excepturi ea optio velit commodi consectetur, mollitia
@@ -15,7 +15,7 @@ export const ActivityTable = ({ userData }) => {
             <tr>
               <th>Name</th>
               <th>Created At</th>
-              <th>Status</th>
+              <th>Update At</th>
             </tr>
           </thead>
           <tbody>
@@ -23,8 +23,8 @@ export const ActivityTable = ({ userData }) => {
               return (
                 <tr key={resource.id}>
                   <th>{resource.title}</th>
-                  <td>{moment(resource.createdAt).format("DD-MM-YYYY")}</td>
-                  <td>{resource.isApproved ? "Approved" : "Not Approved"}</td>
+                  <td>{moment(resource.createdAt).format("MMMM Do YYYY: h:mm:ss A")}</td>
+                  <td>{moment(resource.updatedAt).format("MMMM Do YYYY: h:mm:ss A")}</td>
                 </tr>
               );
             })}

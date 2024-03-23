@@ -16,6 +16,7 @@ export async function GET(request, { params }) {
             id: true,
             title: true,
             createdAt: true,
+            updatedAt: true,
             isApproved: true
           }
         }
