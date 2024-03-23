@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import React from 'react'
 
@@ -35,7 +37,22 @@ export const TableRequest = ({allResourceData}) => {
                                     <button className="btn btn-info btn-xs">Details</button>
                                 </Link>
                                 <div className='block'>
-                                    <button className="btn btn-warning btn-xs">Delete</button>
+                                    <button className="btn btn-warning btn-xs" onClick={()=>document.getElementById('delete_modal').showModal()}>Delete</button>
+                                    <dialog id="delete_modal" className="modal">
+                                        <div className="modal-box">
+                                            <h1 className="py-4">Delete {title}?</h1>
+                                            <div className="modal-action">
+                                            <form method="dialog">
+                                                {/* if there is a button in form, it will close the modal */}
+                                                <button className="btn-accent">No</button>
+                                            </form>
+                                            <form method="dialog">
+                                                {/* if there is a button in form, it will close the modal */}
+                                                <button className="btn-error">Yes</button>
+                                            </form>
+                                            </div>
+                                        </div>
+                                    </dialog>
                                 </div>
                             </th>
                         </tr>

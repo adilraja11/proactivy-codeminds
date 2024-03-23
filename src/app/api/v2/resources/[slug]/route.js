@@ -9,6 +9,13 @@ export async function GET(request, { params }) {
             where: {
                 slug
             },
+            include: {
+                category: {
+                    select: {
+                        name: true
+                    }
+                }
+            }
         });
         return NextResponse.json({message: `GET Resource by Slug success`, data: resourceData});
     } catch (error) {
