@@ -24,7 +24,6 @@ export default async function Page({ params }) {
   // console.log(data);
   return (
     <div>
-      <AppbarLayout />
       <Activity resourceData={data} categoryData={categoryData} categoryId={params.categoryId} />
     </div>
   );

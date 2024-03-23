@@ -24,7 +24,7 @@ export default async function Page() {
   console.log(activityData);
   return (
     <div>
-      <AppbarLayout/>
+      <AppbarLayout />
       <Homepage categoryData={data} activityData={activityData} />
     </div>
   );
