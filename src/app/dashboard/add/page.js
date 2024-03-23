@@ -1,5 +1,4 @@
-import { Homepage } from "@/components/homepage/homepage";
-import { AppbarLayout } from "@/components/navigation/appbarLayout";
+import { AddActivity } from "@/components/dashboard/AddActivty";
 import { API_URL } from "@/config/apiUrl";
 
 async function getCategories() {
@@ -14,10 +13,10 @@ export default async function Page() {
   const data = await getCategories();
   // console.log(data);
   return (
-    <div>
-      <AppbarLayout/>
-      <Homepage categoryData={data} />
+    <div className="space-y-6">
+      <h1>Add New Actiivty</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pulvinar massa vel odio lobortis consequat.</p>
+      <AddActivity categoryData={data} />
     </div>
   );
 }
-  
