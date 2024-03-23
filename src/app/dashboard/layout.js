@@ -22,10 +22,10 @@ export default function Layout({children}) {
                   <p>Request Data</p>
                 </div>
               </Link>
-              <Link className="block" href="/dashboard/master">
+              <Link className="block" href="/dashboard/add">
                 <div className="flex gap-2 items-center hover:bg-primary/5 p-2 font-medium cursor-pointer rounded-xl transition duration-200 ease-in-out">
                   {/* <ReceiptText size={18} /> */}
-                  <p>Master Data</p>
+                  <p>Add New Data</p>
                 </div>
               </Link>
             </div>
