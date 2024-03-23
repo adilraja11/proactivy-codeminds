@@ -13,6 +13,7 @@ export async function GET(request, { params }) {
       include: {
         resource: {
           select: {
+            id: true,
             title: true,
             createdAt: true,
             isApproved: true

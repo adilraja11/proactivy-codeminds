@@ -13,6 +13,13 @@ export async function GET(request, { params }) {
             const resourceData = await prisma.resource.findMany({
                 where: {
                     categoryId: categoryId
+                },
+                include: {
+                    category: {
+                        select: {
+                            name: true
+                        }
+                    }
                 }
             });
 

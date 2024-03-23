@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const ActivityTable = () => {
+export const ActivityTable = ({userData}) => {
     return (
         <div className="max-w-7xl mx-auto mb-12 space-y-3">
             <div className='text-xl font-bold'>My Activity</div>
@@ -9,31 +9,21 @@ export const ActivityTable = () => {
                 <table className="table">
                     <thead>
                         <tr>
-                            <th></th>
                             <th>Name</th>
-                            <th>Send Date</th>
+                            <th>Created At</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Cy Ganderton</td>
-                            <td>Quality Control Specialist</td>
-                            <td>Approved</td>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>Hart Hagerty</td>
-                            <td>Desktop Support Technician</td>
-                            <td>Approved</td>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>Brice Swyre</td>
-                            <td>Tax Accountant</td>
-                            <td>Rejected</td>
-                        </tr>
+                        {userData.resource.map((resource) => {
+                            return (
+                                <tr key={resource.id}>
+                                    <th>{resource.title}</th>
+                                    <td>{resource.createdAt.toString()}</td>
+                                    <td>{resource.isApproved? "Approved" : "Not Approved"}</td>
+                                </tr>
+                            );
+                        })}
                     </tbody>
                 </table>
             </div>
