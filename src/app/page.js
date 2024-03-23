@@ -10,13 +10,22 @@ async function getCategories() {
   return data;
 }
 
+async function getActivities() {
+  const activities = await fetch(`${API_URL}/api/v2/resources`, {
+    cache: "no-store"
+  });
+  const {data} = await activities.json();
+  return data;
+}
+
 export default async function Page() {
   const data = await getCategories();
-  // console.log(data);
+  const activityData = await getActivities();
+  console.log(activityData);
   return (
     <div>
       <AppbarLayout/>
-      <Homepage categoryData={data} />
+      <Homepage categoryData={data} activityData={activityData} />
     </div>
   );
 }

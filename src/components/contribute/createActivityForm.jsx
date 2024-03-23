@@ -55,6 +55,8 @@ export const CreateActivityForm = ({data}) => {
             method: 'POST',
             body: formData,
         });
+        const data = await response.json();
+        console.log(data);
         setActivityName("")
         setCategory("Select Category")
         setDescription("")

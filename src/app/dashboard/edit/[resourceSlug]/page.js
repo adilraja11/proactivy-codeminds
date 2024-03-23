@@ -1,4 +1,5 @@
 import { AddActivity } from "@/components/dashboard/AddActivty";
+import { UpdateActivity } from "@/components/dashboard/updateActivity";
 import { API_URL } from "@/config/apiUrl";
 
 async function getResource(slug) {
@@ -8,18 +9,28 @@ async function getResource(slug) {
   return data;
 }
 
+async function getCategories() {
+  const categories = await fetch(`${API_URL}/api/v2/categories`, {
+    cache: "no-store"
+  });
+  const {data} = await categories.json();
+  return data;
+}
+
 export default async function Page({params}) {
-  const data = await getResource(params.resourceSlug);
-  console.log(data);
+  const resourceData = await getResource(params.resourceSlug);
+  const categoryData = await getCategories();
+
   return (
     <div className="space-y-2">
       <h1>Edit Actiivty</h1>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pulvinar massa vel odio lobortis consequat.</p>
       <div>
-          FORM DATA
-          <p>{data.title}</p>
-          <p>{data.description}</p>
-          <p>{data.linkUrl}</p>
+          {/* FORM DATA
+          <p>{resourceData.title}</p>
+          <p>{resourceData.description}</p>
+          <p>{resourceData.linkUrl}</p> */}
+          <UpdateActivity categoryData={categoryData} resourceData={resourceData}/>
       </div>
     </div>
   );
