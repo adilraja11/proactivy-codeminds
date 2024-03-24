@@ -3,19 +3,20 @@ import moment from "moment";
 
 export const ActivityTable = ({ userData }) => {
   return (
-    <div className="max-w-6xl mx-auto mb-12 space-y-3">
-      <div className="text-xl font-bold">My Activity</div>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolor excepturi placeat. Eius excepturi ea optio velit commodi consectetur, mollitia
-        magnam ut corrupti rerum facilis veritatis culpa alias? Totam, non.
-      </p>
+    <div className="max-w-6xl mx-auto mt-28 space-y-4">
+      <div className="space-y-3">
+        <div className="text-3xl font-bold text-primary">Contribution Status</div>
+        <p>
+          Check whether your submissions status have been approved or are pending review by the admin.
+        </p>
+      </div>
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table table-zebra">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Created At</th>
-              <th>Update At</th>
+              <th className="text-base text-black font-semibold">Name</th>
+              <th className="text-base text-black font-semibold">Created At</th>
+              <th className="text-base text-black font-semibold">Update At</th>
             </tr>
           </thead>
           <tbody>

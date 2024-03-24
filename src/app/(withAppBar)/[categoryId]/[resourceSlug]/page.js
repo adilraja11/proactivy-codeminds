@@ -15,10 +15,6 @@ export default async function Page({params}){
     const data = await getResource(params.resourceSlug);
     console.log(data);
     return (
-        <div>
-            <div className="max-w-6xl mx-auto mb-12">
-                <DetailActivity detailResource={data}/>
-            </div>
-        </div>
+        <DetailActivity detailResource={data}/>
     );
 }

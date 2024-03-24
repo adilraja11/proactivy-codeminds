@@ -44,12 +44,12 @@ export const Login = () => {
     <div className='flex'>
       <main className='w-1/2 h-screen space-y-6 flex flex-col justify-center items-center'>
           <div className='text-center'>
-              <h1>Welcome Back to Proactivy</h1>
+              <h1 className='font-bold'>Welcome Back to Proactivy</h1>
               <p>Log In to your account.</p>
           </div>
-          <input className='w-full max-w-lg' type='email' name='email' placeholder='Enter your email' onChange={handleChangeInput}/>
-          <input className='w-full max-w-lg' type='password' name='password' placeholder='Enter your password' onChange={handleChangeInput}/>
-          <button className='w-full max-w-lg' onClick={handleLogin}>Login</button>
+          <input className='input input-bordered input-primary w-full max-w-lg' type='email' name='email' placeholder='Enter your email' onChange={handleChangeInput}/>
+          <input className='input input-bordered input-primary w-full max-w-lg' type='password' name='password' placeholder='Enter your password' onChange={handleChangeInput}/>
+          <button className='w-full max-w-lg text-white' onClick={handleLogin}>Login</button>
       </main>
       <div className='w-1/2 flex flex-col justify-center items-center'>
         <Image width={600} height={600} src="/login-vektor.svg"/>

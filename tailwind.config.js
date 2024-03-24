@@ -4,7 +4,10 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-
+    
   },
   plugins: [require("daisyui")],
+  daisyui: {
+    themes: ["retro"],
+  },
 };

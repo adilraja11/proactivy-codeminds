@@ -67,18 +67,18 @@ export const CreateActivityForm = ({ data }) => {
   return (
     <div className="space-y-4">
       <div>
-        <div className="col-span-4">
+        <div className="col-span-4 space-y-2">
           <p className="font-bold">Activity Name</p>
           <input type="text" placeholder="Type here" className="input input-bordered" value={activityName} onChange={handleChangeName} />
         </div>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-        <div className="col-span-1">
+        <div className="col-span-1 space-y-2">
           <p className="font-bold">Activity Category</p>
           <CategoryDropdown data={data} onChange={handleChangeCategoryId} onChangeCategoryName={handleChangeCategoryName} value={category} />
         </div>
-        <div className="col-span-1">
+        <div className="col-span-1 space-y-2">
           <p className="font-bold">Pricing</p>
           <select className="select select-bordered w-full" value={pricing} onChange={handleChangePricing}>
             <option disabled value="Select Pricing">
@@ -90,16 +90,16 @@ export const CreateActivityForm = ({ data }) => {
         </div>
       </div>
 
-      <div>
+      <div className="space-y-2">
         <p className="font-bold">Activity Description</p>
         <textarea placeholder="Bio" className="textarea textarea-bordered textarea-lg w-full" value={description} onChange={handleChangeDescription}></textarea>
       </div>
-      <div>
+      <div className="space-y-2">
         <p className="font-bold">Link</p>
         <input type="text" placeholder="Type here" className="input input-bordered w-full" value={activityLink} onChange={handleChangeLink} />
       </div>
       <div>
-        <button className="btn btn-neutral w-full" onClick={handleSubmit}>
+        <button className="btn btn-primary w-full text-white" onClick={handleSubmit}>
           Submit
         </button>
       </div>

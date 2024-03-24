@@ -12,9 +12,9 @@ export const CategoryDropdown = ({ data, onChange, categoryId}) => {
   const categories = data;
 
   return (
-    <div>
-      <select className="select select-bordered w-full" defaultValue={categoryId} onChange={handleChange} >
-        <option value="">Select Category</option>
+    <div className=''>
+      <select className="select select-primary w-full" defaultValue={categoryId} onChange={handleChange} >
+        <option value="">All Category</option>
         {categories.map((data) => (
           <option key={data.id} value={data.id}>
             {data.name}

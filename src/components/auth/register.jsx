@@ -40,16 +40,16 @@ export const Register = () => {
     <div className='flex'>
       <main className='w-1/2 h-screen space-y-6 flex flex-col justify-center items-center'>
           <div className='text-center'>
-              <h1>Register</h1>
+              <h1 className='font-bold'>Register</h1>
               <p>Create your Account for Proactivy</p>
           </div>
           <div className='grid grid-cols-2 gap-4'>
-              <input type='text' name='firstName' placeholder='First Name' onChange={handleChangeInput}/>
-              <input type='text' name='lastName' placeholder='Last Name' onChange={handleChangeInput}/>
+              <input className='input input-bordered input-primary' type='text' name='firstName' placeholder='First Name' onChange={handleChangeInput}/>
+              <input className='input input-bordered input-primary' type='text' name='lastName' placeholder='Last Name' onChange={handleChangeInput}/>
           </div>
-          <input className='w-full max-w-lg' type='email' name='email' placeholder='email@domain.com' onChange={handleChangeInput}/>
-          <input className='w-full max-w-lg' type='password' name='password' placeholder='password' onChange={handleChangeInput}/>
-          <button className='w-full max-w-lg' onClick={handleRegister}>Register</button>
+          <input className='input input-bordered input-primary w-full max-w-lg' type='email' name='email' placeholder='email@domain.com' onChange={handleChangeInput}/>
+          <input className='input input-bordered input-primary w-full max-w-lg' type='password' name='password' placeholder='password' onChange={handleChangeInput}/>
+          <button className='w-full max-w-lg text-white' onClick={handleRegister}>Register</button>
       </main>
       <div className='w-1/2 flex flex-col justify-center items-center'>
         <Image width={600} height={600} src="/signup-vektor.svg"/>

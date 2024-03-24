@@ -15,7 +15,7 @@ export const SearchBar = ({onChange}) => {
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                         <Search className="text-gray-500" />
                     </div>
-                    <input type="text" placeholder="Search..." onChange={handleChange} className="input-bordered pl-10 w-full md:w-[55rem] lg:w-[72rem] xl:w-120" />
+                    <input type="text" placeholder="Search..." onChange={handleChange} className="input-primary pl-10 w-full md:w-[55rem] lg:w-[72rem] xl:w-120" />
                 </div>
             </div>
         </div>

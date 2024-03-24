@@ -22,7 +22,7 @@ export const CategoriesCards = ({id, name, description}) => {
 
   return (
     <Link href={`/${id}`}>
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card w-96 bg-base-100 hover:bg-primary scale-95 hover:scale-100 transition-all shadow-xl">
             <div className="card-body flex-row gap-4 h-[120px]">
                 <div className="flex items-center">
                     <Image src={imageSrc} alt="icon" width={52} height={52}/>

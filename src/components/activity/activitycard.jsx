@@ -6,14 +6,14 @@ import React from 'react';
 
 export const ActivityCard = ({ id, title, slug, category, categoryId, description, featuredImage, images, pricing }) => {
     return (
-        <div className="card bg-white shadow-xl text-black flex flex-col justify-between">
+        <div className="card scale-95 hover:scale-100 transition-all bg-white shadow-xl text-black flex flex-col justify-between">
             <div className="card-body">
                 <div>
-                    <p className="text-xs font-semibold text-primary">{category.name}</p>
+                    <p className="text-xs font-bold text-primary">{category.name}</p>
                 </div>
                 <div className="flex items-center gap-2">
                     <h2 className="card-title">{title}</h2>
-                    {pricing == "FREE"? <div className="badge badge-success badge-sm">{pricing}</div> : <div className="badge badge-error badge-sm">{pricing}</div>}
+                    {pricing == "FREE"? <div className="badge badge-success badge-sm px-2 py-1">{pricing}</div> : <div className="badge badge-error badge-sm px-2 py-1">{pricing}</div>}
                 </div>
 
                 <div>

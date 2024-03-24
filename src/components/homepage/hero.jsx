@@ -7,9 +7,8 @@
         <div className="hero-content flex-col lg:flex-row-reverse">
             <Image src="/hero.svg" alt="Hero" width={500} height={300}/>
             <div>
-                <h1 className="text-6xl font-bold">Every Success starts with a little knowledge</h1>
-                <p className="py-6 text-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pulvinar massa vel odio lobortis consequat.</p>
-                
+                <h1 className="text-6xl font-bold text-primary">Every Success starts with a little knowledge</h1>
+                <p className="py-6 text-xl font-medium">ProActivy is a platform that provides learning resources for all levels to enhance their skills. It allows users to browse various learning resources, search, and even contribute to share resources.</p>
                 
                 <div className="w-full max-w-xl stats stats-vertical lg:stats-horizontal shadow">
                 <div className="stat text-center">
