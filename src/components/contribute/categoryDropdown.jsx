@@ -1,16 +1,11 @@
 import React from "react";
 
-export const CategoryDropdown = ({ data, onChange, onChangeCategoryName, value }) => {
+export const CategoryDropdown = ({ data, onChange, value }) => {
   const handleChange = (e) => {
     const selectedCategoryId = e.target.value;
 
     onChange(selectedCategoryId);
 
-    const selectedCategory = categories.find((category) => category.id === selectedCategoryId);
-
-    const selectedCategoryName = selectedCategory ? selectedCategory.name : "";
-
-    onChangeCategoryName(selectedCategoryName);
   };
 
   const categories = data;
@@ -18,7 +13,7 @@ export const CategoryDropdown = ({ data, onChange, onChangeCategoryName, value }
   return (
     <div>
       <select className="select select-bordered w-full" value={value} onChange={handleChange}>
-        <option disabled value="Select Category">
+        <option value="Select Category" key="Select Category">
           Select Category
         </option>
         {categories.map((data) => (

@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { CategoryDropdown } from "./categoryDropdown";
 import { API_URL } from "@/config/apiUrl";
+import toast from 'react-hot-toast';
 
 export const CreateActivityForm = ({ data }) => {
   const [activityName, setActivityName] = useState("");
@@ -20,9 +21,6 @@ export const CreateActivityForm = ({ data }) => {
     setCategoryId(e);
   };
 
-  const handleChangeCategoryName = (e) => {
-    setCategory(e);
-  };
 
   const handleChangeLink = (e) => {
     setActivityLink(e.target.value);
@@ -55,10 +53,14 @@ export const CreateActivityForm = ({ data }) => {
       method: "POST",
       body: formData,
     });
-    const data = await response.json();
-    console.log(data);
+
+    const { message } = await response.json();
+    if (message === "Resource has been created") {
+      toast.success(message);
+    }
+
     setActivityName("");
-    setCategory("Select Category");
+    setCategoryId("Select Category");
     setDescription("");
     setPricing("Select Pricing");
     setActivityLink("");
@@ -76,7 +78,7 @@ export const CreateActivityForm = ({ data }) => {
       <div className="grid grid-cols-2 gap-4">
         <div className="col-span-1 space-y-2">
           <p className="font-bold">Activity Category</p>
-          <CategoryDropdown data={data} onChange={handleChangeCategoryId} onChangeCategoryName={handleChangeCategoryName} value={category} />
+          <CategoryDropdown data={data} onChange={handleChangeCategoryId} value={categoryId} />
         </div>
         <div className="col-span-1 space-y-2">
           <p className="font-bold">Pricing</p>
